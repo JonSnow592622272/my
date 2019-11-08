@@ -17,6 +17,7 @@
 
     <modules>
         <module>my-web</module>
+        <module>my-service</module>
 
     </modules>
 

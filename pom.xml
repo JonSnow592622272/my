@@ -18,7 +18,7 @@
     <modules>
         <module>my-web</module>
         <module>my-service</module>
-        <module>my-service-api</module>
+        <module>my-api</module>
 
     </modules>
 

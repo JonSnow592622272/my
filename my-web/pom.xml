@@ -7,7 +7,7 @@
     <artifactId>my-web</artifactId>
 
     <parent>
-        <groupId>com.shotgun.my</groupId>
+        <groupId>com.shotgun</groupId>
         <artifactId>my</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+%d{HH:mm:ss.SSS} 表示输出到毫秒的时间
+%t 输出当前线程名称
+%-5level 输出日志级别，-5表示左对齐并且固定输出5个字符，如果不足在右边补0
+%logger 输出logger名称，因为Root Logger没有名称，所以没有输出
+%msg 日志文本
+%n 换行
+其他常用的占位符有：
+%F 输出所在的类文件名，如Client.java
+%L 输出行号
+%M 输出所在方法名
+%l  输出语句所在的行数, 包括类名、方法名、文件名、行数
+sys:user.home
+-->
+<Configuration monitorInterval="3600" shutdownHook="disable">
+
+    <properties>
+        <property name="LOG_HOME">/var/log/my_log</property>
+        <!-- 日志切割的最小单位 -->
+        <property name="LOG_FILE_SIZE">50MB</property>
+        <!-- 日志备份目录 -->
+        <property name="SERVER_NAME">springboot-my</property>
+        <!-- 日志输出级别 -->
+        <property name="OUTPUT_LOG_LEVEL">INFO</property>
+        <!-- 环境 -->
+        <property name="active">sit</property>
+
+
+        <!--日志输出格式↓↓↓↓↓从springboot中log4j2-file.xml参考过来-->
+        <Property name="PID">????</Property>
+        <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
+        <Property name="LOG_LEVEL_PATTERN">%5p</Property>
+        <Property name="LOG_DATEFORMAT_PATTERN">yyyy-MM-dd HH:mm:ss.SSS</Property>
+        <Property name="CONSOLE_LOG_PATTERN">%clr{%d{${LOG_DATEFORMAT_PATTERN}}}{faint} %clr{${LOG_LEVEL_PATTERN}}
+            %clr{[%10.10t]}{faint} %clr{%40.40C.%-20M(%-4L)}{cyan} %clr{:}{faint}
+            %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}
+        </Property>
+        <Property name="FILE_LOG_PATTERN">%d{${LOG_DATEFORMAT_PATTERN}} ${LOG_LEVEL_PATTERN} ${sys:PID} [%15.15t]
+            %40.40C.%-20M(%-4L) : %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}
+        </Property>
+        <!--格式备份：“%d{yyyy-MM-dd HH:mm:ss.SSS} [%p] [%t] %C{8}.%M(%L) - %msg%n”-->
+        <!--日志输出格式↑↑↑↑↑-->
+
+    </properties>
+
+
+    <Appenders>
+
+        <!-- Console 的target是SYSTEM_OUT是输出到统一的输出流，没有指定日志文件 配置文件log4j.xml 中的<Console
+            name="Console" target="SYSTEM_OUT">表示 log4j2将日志配置到System.out输入到控制到输出流。 -->
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <!-- 输出日志的格式 -->
+            <PatternLayout>
+                <pattern>${sys:CONSOLE_LOG_PATTERN}</pattern>
+            </PatternLayout>
+        </Console>
+
+
+        <!-- 这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+        <RollingRandomAccessFile
+                name="RandomAccessFile"
+                fileName="${LOG_HOME}/${SERVER_NAME}-${active}.log"
+                filePattern="${LOG_HOME}/his-${SERVER_NAME}-${active}/${SERVER_NAME}-${active}-%d{yyyy-MM-dd}-%i.log.gz"
+                immediateFlush="true" append="true">
+
+            <PatternLayout>
+                <pattern>${sys:FILE_LOG_PATTERN}</pattern>
+            </PatternLayout>
+
+            <Policies>
+                <!-- 定义log文件封存的周期 -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="${LOG_FILE_SIZE}"/>
+            </Policies>
+            <!-- 最多备份x个 -->
+            <DefaultRolloverStrategy fileIndex="max" max="100"/>
+
+        </RollingRandomAccessFile>
+
+        <!-- 这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+        <RollingRandomAccessFile
+                name="RandomAccessErrorFile"
+                fileName="${LOG_HOME}/${SERVER_NAME}-${active}-error.log"
+                filePattern="${LOG_HOME}/his-${SERVER_NAME}-${active}/${SERVER_NAME}-${active}-error-%d{yyyy-MM-dd}-%i.log.gz"
+                immediateFlush="true" append="true">
+            <!-- 定义日志级别 -->
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+
+            <PatternLayout>
+                <pattern>${sys:FILE_LOG_PATTERN}</pattern>
+            </PatternLayout>
+
+            <Policies>
+                <!-- 定义log文件封存的周期 -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="${LOG_FILE_SIZE}"/>
+            </Policies>
+            <!-- 最多备份x个 -->
+            <DefaultRolloverStrategy fileIndex="max" max="100"/>
+
+        </RollingRandomAccessFile>
+
+    </Appenders>
+
+
+    <Loggers>
+
+        <!-- 定义单个类日志记录级别 -->
+
+        <!--控制sql打印 ↓↓↓↓↓↓-->
+        <logger name="com.my" level="DEBUG"/>
+        <!--控制sql打印 ↑↑↑↑↑↑-->
+
+        <logger name="org.springframework" level="ERROR"/>
+        <logger name="com.alibaba.nacos" level="WARN"/>
+        <logger name="com.xxl" level="INFO"/>
+
+        <!-- 同步和异步混合记录 -->
+        <AsyncLogger name="manage" level="${OUTPUT_LOG_LEVEL}"
+                     includeLocation="true" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RandomAccessFile"/>
+            <AppenderRef ref="RandomAccessErrorFile"/>
+        </AsyncLogger>
+
+        <!-- 定义除单个类外所有日志记录级别 -->
+        <Root level="${OUTPUT_LOG_LEVEL}" includeLocation="true">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RandomAccessFile"/>
+            <AppenderRef ref="RandomAccessErrorFile"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>
+
+

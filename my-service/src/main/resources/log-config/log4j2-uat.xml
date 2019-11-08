@@ -111,7 +111,7 @@ sys:user.home
         <!-- 定义单个类日志记录级别 -->
 
         <!--控制sql打印 ↓↓↓↓↓↓-->
-        <logger name="com.my" level="DEBUG"/>
+        <logger name="com.shotgun.my" level="DEBUG"/>
         <!--控制sql打印 ↑↑↑↑↑↑-->
 
         <logger name="org.springframework" level="ERROR"/>

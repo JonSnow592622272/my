@@ -22,6 +22,12 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.shotgun</groupId>
+            <artifactId>my-common-web </artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
 
         <!--内部模块引用↑↑↑↑↑-->
 

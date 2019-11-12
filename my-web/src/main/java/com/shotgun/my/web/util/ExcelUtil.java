@@ -1,4 +1,4 @@
-/*
+package com.shotgun.my.web.util;/*
 package com.shotgun.my.web.util;
 
 import com.yunyihenkey.common.utils.DateUtil;

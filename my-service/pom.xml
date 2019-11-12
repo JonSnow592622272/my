@@ -12,6 +12,15 @@
     </parent>
 
     <dependencies>
+        <!--内部模块引用↓↓↓↓↓-->
+        <dependency>
+            <groupId>com.shotgun</groupId>
+            <artifactId>my-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!--内部模块引用↑↑↑↑↑-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

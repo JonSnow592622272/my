@@ -1,4 +1,4 @@
-package com.shotgun.my.service.config;
+package com.shotgun.my.web.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

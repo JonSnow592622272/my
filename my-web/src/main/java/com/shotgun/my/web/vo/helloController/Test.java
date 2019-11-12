@@ -1,4 +1,4 @@
-package com.shotgun.my.api.dto.helloController;
+package com.shotgun.my.web.vo.helloController;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

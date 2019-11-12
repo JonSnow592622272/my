@@ -1,4 +1,4 @@
-package com.shotgun.my.api.basedo;
+package com.shotgun.my.web.vo;
 
 public class User {
     private Long id;

@@ -1,6 +1,6 @@
 package com.shotgun.my.api.api;
 
-import com.shotgun.my.api.dto.User;
+import com.shotgun.my.web.vo.User;
 
 import java.util.List;
 

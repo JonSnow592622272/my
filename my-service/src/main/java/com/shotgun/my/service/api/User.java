@@ -1,4 +1,4 @@
-package com.shotgun.my.api.basedo;
+package com.shotgun.my.service.api;
 
 public class User {
     private Long id;

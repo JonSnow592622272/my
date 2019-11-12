@@ -1,7 +1,8 @@
 package com.shotgun.my.service.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.shotgun.my.api.basedo.User;
+import com.shotgun.my.service.api.User;
+
 import java.util.List;
 
 /**

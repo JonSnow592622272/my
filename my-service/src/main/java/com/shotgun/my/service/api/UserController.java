@@ -1,7 +1,6 @@
-package com.shotgun.my.web.controller;
+package com.shotgun.my.service.api;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.shotgun.my.api.basedo.User;
 import com.shotgun.my.common.util.LogUtils;
 import com.shotgun.my.service.dao.defaultDb.UserMapper;
 import com.shotgun.my.service.service.UserService;

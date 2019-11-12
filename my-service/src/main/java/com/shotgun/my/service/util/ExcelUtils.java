@@ -222,7 +222,7 @@ public class ExcelUtils<T> {
 					row = sheet.createRow(rowNo + 1);
 					row.setHeight((short) (ROW_HEOGHT * 20));
 					// 得到导出对象.
-					T vo = list.get(i);
+					T dto = list.get(i);
 
 					// 获取列的行数
 					int rowSize = 1;
@@ -232,7 +232,7 @@ public class ExcelUtils<T> {
 							field.setAccessible(true);
 							Export attr = field.getAnnotation(Export.class);
 							if (attr.isMultiline()) {
-								String str = String.valueOf(field.get(vo));
+								String str = String.valueOf(field.get(dto));
 								rowSize = str.split(",").length;
 								break bgm;
 							}
@@ -249,7 +249,7 @@ public class ExcelUtils<T> {
 
 						// 列是否多行
 						if (attr.isMultiline()) {
-							String str = String.valueOf(field.get(vo));
+							String str = String.valueOf(field.get(dto));
 							String[] strArray = str.split(",");
 							for (int irow = 0; irow < strArray.length; irow++) {
 								HSSFRow cellRow = sheet.getRow(rowNo + 1 + irow);
@@ -277,10 +277,10 @@ public class ExcelUtils<T> {
 							if (field.getType() == Date.class) {
 								// 如果数据存在就填入,不存在填入空格.
 								SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-								cell.setCellValue(field.get(vo) == null ? "" : sdf.format(field.get(vo)));
+								cell.setCellValue(field.get(dto) == null ? "" : sdf.format(field.get(dto)));
 							} else {
 								// 如果数据存在就填入,不存在填入空格.
-								cell.setCellValue(field.get(vo) == null ? "" : String.valueOf(field.get(vo)));
+								cell.setCellValue(field.get(dto) == null ? "" : String.valueOf(field.get(dto)));
 							}
 						}
 					}

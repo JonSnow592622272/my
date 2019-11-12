@@ -1,4 +1,4 @@
-package com.shotgun.my.web.vo;
+package com.shotgun.my.dto;
 
 public class User {
     private Long id;

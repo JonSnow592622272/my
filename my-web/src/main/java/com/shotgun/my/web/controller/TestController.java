@@ -1,6 +1,6 @@
 package com.shotgun.my.web.controller;
 
-import com.shotgun.my.dto.helloController.Test;
+import com.shotgun.my.web.vo.helloController.Test;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

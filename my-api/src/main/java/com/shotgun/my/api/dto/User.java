@@ -1,4 +1,4 @@
-package com.shotgun.my.dto;
+package com.shotgun.my.api.dto;
 
 public class User {
     private Long id;

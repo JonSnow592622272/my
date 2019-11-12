@@ -20,7 +20,7 @@ sys:user.home
         <!-- 日志切割的最小单位 -->
         <property name="LOG_FILE_SIZE">50MB</property>
         <!-- 日志备份目录 -->
-        <property name="SERVER_NAME">springboot-my</property>
+        <property name="SERVER_NAME">my-web</property>
         <!-- 日志输出级别 -->
         <property name="OUTPUT_LOG_LEVEL">INFO</property>
         <!-- 环境 -->

@@ -7,6 +7,7 @@ import com.shotgun.my.api.api.UserService;
 import com.shotgun.my.api.dto.User;
 import com.shotgun.my.service.dao.defaultDb.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Autowired
     private UserMapper userMapper;
 
+    @RequestMapping("/")
     @Override
     public List<User> getOnelalala() {
         return userMapper.getOnelalala(new Page(1,5));

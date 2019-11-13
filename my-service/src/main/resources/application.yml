@@ -22,7 +22,7 @@ spring:
 
 logging:
   config: classpath:log-config/log4j2-${spring.profiles.active}.xml
-server:
-  port: 8000
 #server:
-#  port: ${random.int[20000,60000]}
+#  port: 8000
+server:
+  port: ${random.int[20000,60000]}

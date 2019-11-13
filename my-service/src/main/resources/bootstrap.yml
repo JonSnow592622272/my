@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: my-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#        namespace: ac438f5e-6600-4c30-951c-4a9c8c572e61
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
+#        namespace: ${spring.cloud.nacos.discovery.namespace}
+#        ext-config:
+#          - data-id: pub.${spring.cloud.nacos.config.file-extension}
+#          - data-id: payds.${spring.cloud.nacos.config.file-extension}
+#          - data-id: ${spring.cloud.nacos.config.prefix}.${spring.cloud.nacos.config.file-extension}
+#            refresh: true
+#        prefix: profitConfig
+#  profiles:
+#    active: sit

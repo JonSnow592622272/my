@@ -22,24 +22,30 @@
 
     </modules>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <my-common.version>1.0-SNAPSHOT</my-common.version>
+    </properties>
+
+
     <dependencyManagement>
         <dependencies>
             <!--内部模块版本管理↓↓↓↓↓-->
             <dependency>
                 <groupId>com.shotgun</groupId>
                 <artifactId>my-common-base</artifactId>
-                <version>${parent.version}</version>
+                <version>${my-common.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.shotgun</groupId>
                 <artifactId>my-common-service</artifactId>
-                <version>${parent.version}</version>
+                <version>${my-common.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.shotgun</groupId>
                 <artifactId>my-common-web</artifactId>
-                <version>${parent.version}</version>
+                <version>${my-common.version}</version>
             </dependency>
 
             <!--内部模块版本管理↑↑↑↑↑-->
@@ -56,8 +62,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
 

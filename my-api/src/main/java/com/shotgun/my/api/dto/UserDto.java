@@ -1,6 +1,6 @@
 package com.shotgun.my.api.dto;
 
-public class User {
+public class UserDto {
     private Long id;
     private String name;
     private Integer age;

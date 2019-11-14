@@ -4,7 +4,7 @@
 <mapper namespace="com.shotgun.my.service.dao.defaultDb.UserMapper">
 
 
-    <select id="getOnelalala" resultType="com.shotgun.my.api.dto.User">
+    <select id="getOnelalala" resultType="com.shotgun.my.api.po.pojos.User">
           select * from user
     </select>
 

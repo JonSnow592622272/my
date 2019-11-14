@@ -1,6 +1,6 @@
 package com.shotgun.my.api.api;
 
-import com.shotgun.my.api.dto.User;
+import com.shotgun.my.api.po.pojos.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

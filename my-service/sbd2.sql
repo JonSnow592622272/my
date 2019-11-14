@@ -37,4 +37,23 @@ INSERT INTO `user` VALUES (12, '李四', 10, '111@qq.com');
 INSERT INTO `user` VALUES (25, '王五', 11, '222@qq.com');
 INSERT INTO `user` VALUES (123, '麻六', 25, '333@qq.com');
 
+
+
+
+CREATE TABLE `test_user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `user_name` varchar(20) DEFAULT NULL COMMENT '用户名',
+  `password` varchar(20) DEFAULT NULL COMMENT '密码',
+  `salt` varchar(32) DEFAULT NULL COMMENT '盐值',
+  `name` varchar(50) DEFAULT NULL COMMENT '姓名',
+  `age` int(11) DEFAULT NULL COMMENT '年龄',
+  `sex` int(11) DEFAULT NULL COMMENT '性别#MAN,1,男;WOMAN,2,女',
+  `mobile` varchar(11) DEFAULT NULL COMMENT '手机号',
+  `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_name` (`user_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+
+
 SET FOREIGN_KEY_CHECKS = 1;

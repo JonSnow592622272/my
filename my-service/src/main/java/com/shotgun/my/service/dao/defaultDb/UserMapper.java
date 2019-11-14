@@ -1,7 +1,7 @@
 package com.shotgun.my.service.dao.defaultDb;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.shotgun.my.api.dto.User;
+import com.shotgun.my.api.po.pojos.User;
 import com.shotgun.mycommon.service.base.MyBaseMapper;
 
 import java.util.List;

@@ -16,15 +16,16 @@
 
     <dependencies>
         <!--内部模块引用↓↓↓↓↓-->
+
+        <!--web层公共包-->
         <dependency>
             <groupId>com.shotgun</groupId>
-            <artifactId>my-api</artifactId>
-            <version>${project.version}</version>
+            <artifactId>my-common-web</artifactId>
         </dependency>
 
         <dependency>
             <groupId>com.shotgun</groupId>
-            <artifactId>my-common-web</artifactId>
+            <artifactId>my-api</artifactId>
             <version>${project.version}</version>
         </dependency>
 

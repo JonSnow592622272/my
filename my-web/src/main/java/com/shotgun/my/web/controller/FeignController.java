@@ -1,6 +1,5 @@
 package com.shotgun.my.web.controller;
 
-import com.shotgun.my.api.api.TestBbbApi;
 import com.shotgun.my.api.api.UserService;
 import com.shotgun.my.api.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,22 +9,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class HelloController {
-
-    @Autowired
-    TestBbbApi testBbbApi;
+@RequestMapping("wocao")
+public class FeignController {
 
     @Autowired
     UserService userService;
 
-    @RequestMapping("/")
-    public String index() {
-        System.out.println(testBbbApi.bb());
+    @RequestMapping("/a")
+    public List<User> a() {
 
-        List<User> onelalala = userService.getOnelalala();
-        System.out.println(onelalala);
+        return userService.getOnelalala();
+    }
 
-        return "Greetings from Spring Boot! 祝你好运！";
+    @RequestMapping("/a2")
+    public List<User> a2() {
+
+        return userService.selectList();
     }
 
 }

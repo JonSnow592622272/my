@@ -1,18 +1,17 @@
 package com.shotgun.my.api.api;
 
 import com.shotgun.my.api.dto.User;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-/**
- * @author wulm
- * @version 1.0.0
- * @date 2019/7/23 15:34
- * @desc
- */
+@FeignClient(name = "my-service")
 public interface UserService {
 
+    @GetMapping("/")
     List<User> getOnelalala();
 
+    @GetMapping("/a")
     List<User> selectList();
 }

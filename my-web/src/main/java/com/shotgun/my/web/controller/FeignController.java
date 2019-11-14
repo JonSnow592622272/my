@@ -13,7 +13,7 @@ import java.util.List;
 public class FeignController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @RequestMapping("/a")
     public List<User> a() {

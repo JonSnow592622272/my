@@ -9,9 +9,9 @@ import java.util.List;
 @FeignClient(name = "my-service")
 public interface UserService {
 
-    @GetMapping("/")
+    @GetMapping("/getOnelalala")
     List<User> getOnelalala();
 
-    @GetMapping("/a")
+    @GetMapping("/selectList")
     List<User> selectList();
 }

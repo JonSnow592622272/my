@@ -9,10 +9,16 @@ import java.util.List;
 
 @FeignClient(name = CommonConstant.APPLICATION_NAME)
 public interface UserService {
+    interface UserServiceExt extends UserService {}
 
     @GetMapping("/getOnelalala")
     List<User> getOnelalala();
 
     @GetMapping("/selectList")
     List<User> selectList();
+
+    @GetMapping("/testAdd")
+    void testAdd();
+
+
 }

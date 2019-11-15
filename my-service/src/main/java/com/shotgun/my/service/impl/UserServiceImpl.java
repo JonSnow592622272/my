@@ -3,12 +3,10 @@ package com.shotgun.my.service.impl;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.shotgun.my.api.api.UserService;
 import com.shotgun.my.api.api.UserService.UserServiceExt;
 import com.shotgun.my.api.po.pojos.User;
 import com.shotgun.my.service.dao.defaultDb.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,8 +19,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 
     @Autowired
-    @Qualifier("userServiceImpl")
-    private UserService userServiceExt;
+    private UserServiceExt userServiceExt;
 
     @Override
     public List<User> getOnelalala() {

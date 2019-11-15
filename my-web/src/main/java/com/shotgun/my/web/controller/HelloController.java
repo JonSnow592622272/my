@@ -1,6 +1,6 @@
 package com.shotgun.my.web.controller;
 
-import com.shotgun.my.api.api.TestBbbApi;
+import com.shotgun.my.api.api.TestBbbService;
 import com.shotgun.my.api.api.UserService;
 import com.shotgun.my.api.po.pojos.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +13,14 @@ import java.util.List;
 public class HelloController {
 
     @Autowired
-    TestBbbApi testBbbApi;
+    TestBbbService testBbbService;
 
     @Autowired
     UserService userService;
 
     @RequestMapping("/")
     public String index() {
-        System.out.println(testBbbApi.bb());
+        System.out.println(testBbbService.bb());
 
         List<User> onelalala = userService.getOnelalala();
         System.out.println(onelalala);

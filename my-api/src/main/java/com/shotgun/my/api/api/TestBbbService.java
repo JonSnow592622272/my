@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @FeignClient(name = "TestBbbApi", url = "https://www.baidu.com")
 @RequestMapping(value = "/test222")
-public interface TestBbbApi {
+public interface TestBbbService {
 
     @PostMapping("/bb")
     String bb();

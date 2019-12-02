@@ -11,12 +11,12 @@ import java.util.function.Consumer;
  * @author wulm
  * @desc
  **/
-public interface Excel {
+public interface ExcelWriter {
 
     /**
      * 添加sheet表
      */
-    <T> Sheet<T> addSheet(String name, List<T> list);
+    <T> SheetWriter<T> addSheet(String name, List<T> list);
 
     /**
      * 导出数据

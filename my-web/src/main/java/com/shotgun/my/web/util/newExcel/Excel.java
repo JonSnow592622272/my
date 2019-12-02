@@ -1,11 +1,8 @@
 package com.shotgun.my.web.util.newExcel;
 
-import org.apache.poi.ss.usermodel.Workbook;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.function.Consumer;
 
 /**
  * @author wulm
@@ -22,7 +19,7 @@ public interface Excel {
      * @author wulm
      * @desc 设置导入文件或导出的模板文件
      **/
-    Excel setExcelFile(InputStream inputStream);
+    Excel setFile(InputStream inputStream);
 
     void getOrCreateSheet(String sheetname);
 
@@ -32,11 +29,11 @@ public interface Excel {
      **/
     Excel export(OutputStream outputStream) throws IOException;
 
-    /**
-     * @author wulm
-     * @desc 对wookbook处理并导出数据
-     **/
-    Excel export(OutputStream outputStream, Consumer<Workbook> consumer) throws IOException;
+//    /**
+//     * @author wulm
+//     * @desc 对wookbook处理并导出数据
+//     **/
+//    Excel export(OutputStream outputStream, Consumer<Workbook> consumer) throws IOException;
 
     /**
      * @author wulm

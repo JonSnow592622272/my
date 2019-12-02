@@ -22,7 +22,6 @@ public class AbstractExcel implements Excel {
 
     @Override
     public Excel setFile(InputStream inputStream) {
-        setFileI(inputStream);
         Consumer<AbstractExcel> a = s -> {
 
         };

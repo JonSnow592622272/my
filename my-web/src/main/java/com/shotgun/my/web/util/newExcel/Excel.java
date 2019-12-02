@@ -1,6 +1,5 @@
 package com.shotgun.my.web.util.newExcel;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -27,7 +26,7 @@ public interface Excel {
      * @author wulm
      * @desc 导出数据
      **/
-    Excel export(OutputStream outputStream) throws IOException;
+    Excel export(OutputStream outputStream);
 
 //    /**
 //     * @author wulm

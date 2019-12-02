@@ -1,8 +1,8 @@
 package com.shotgun.my.web.util.newExcel;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -10,23 +10,19 @@ import java.util.function.Consumer;
  * @author wulm
  * @desc
  **/
-public class AbstractExcel implements Excel {
+public abstract class AbstractExcel implements Excel {
 
-    private List<Consumer<AbstractExcel>> steps;
+    private List<Consumer<AbstractExcel>> steps = new ArrayList<>();
 
 
-    void setFileI(InputStream inputStream) {
+    abstract void setFileI(InputStream inputStream);
 
-    }
 
+    abstract void exportI(OutputStream outputStream);
 
     @Override
     public Excel setFile(InputStream inputStream) {
-        Consumer<AbstractExcel> a = s -> {
-
-        };
-
-
+        steps.add(ae -> ae.setFileI(inputStream));
         return this;
     }
 
@@ -36,8 +32,9 @@ public class AbstractExcel implements Excel {
     }
 
     @Override
-    public Excel export(OutputStream outputStream) throws IOException {
-        return null;
+    public Excel export(OutputStream outputStream) {
+        steps.add(ae -> ae.exportI(outputStream));
+        return this;
     }
 
     @Override

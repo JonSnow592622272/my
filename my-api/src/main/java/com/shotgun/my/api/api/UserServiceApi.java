@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @FeignClient(name = CommonConstant.APPLICATION_NAME)
-public interface UserService {
-    interface UserServiceExt extends UserService {}
+public interface UserServiceApi {
 
     @GetMapping("/getOnelalala")
     List<User> getOnelalala();

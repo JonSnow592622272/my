@@ -1,6 +1,6 @@
 package com.shotgun.my.web.controller;
 
-import com.shotgun.my.api.api.UserService;
+import com.shotgun.my.api.api.UserServiceApi;
 import com.shotgun.my.api.po.pojos.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import java.util.List;
 public class FeignController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceApi userService;
 
     @RequestMapping("/a")
     public List<User> a() {

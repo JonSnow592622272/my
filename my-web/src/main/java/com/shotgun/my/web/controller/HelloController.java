@@ -1,7 +1,7 @@
 package com.shotgun.my.web.controller;
 
 import com.shotgun.my.api.api.TestBbbService;
-import com.shotgun.my.api.api.UserService;
+import com.shotgun.my.api.api.UserServiceApi;
 import com.shotgun.my.api.po.pojos.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,7 @@ public class HelloController {
     TestBbbService testBbbService;
 
     @Autowired
-    UserService userService;
+    UserServiceApi userService;
 
     @RequestMapping("/")
     public String index() {

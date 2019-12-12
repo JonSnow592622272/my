@@ -3,9 +3,9 @@ package com.shotgun.my.service.impl;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.shotgun.my.api.api.UserService.UserServiceExt;
 import com.shotgun.my.api.po.pojos.User;
 import com.shotgun.my.service.dao.defaultDb.UserMapper;
+import com.shotgun.my.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,18 +15,18 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @DS("db2")//切换数据源
 @RestController
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserServiceExt {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
 
     @Autowired
-    private UserServiceExt userServiceExt;
+    private UserService userService;
 
     @Override
     public List<User> getOnelalala() {
 
-        userServiceExt.testAdd();
+        userService.testAdd();
 
-        System.out.println("lllllllllllllllllllllllll" + userServiceExt.selectList());
+        System.out.println("lllllllllllllllllllllllll" + userService.selectList());
 
         return super.getBaseMapper().getOnelalala(new Page(1, 5));
     }

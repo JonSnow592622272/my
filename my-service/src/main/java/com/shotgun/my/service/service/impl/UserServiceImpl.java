@@ -1,4 +1,4 @@
-package com.shotgun.my.service.impl;
+package com.shotgun.my.service.service.impl;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

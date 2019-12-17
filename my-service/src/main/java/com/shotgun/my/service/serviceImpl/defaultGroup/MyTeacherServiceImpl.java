@@ -35,7 +35,7 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
     }
 
     @GetMapping("/testGet101")
-    private IPage<MyTeacher> testGet101() {
+    public IPage<MyTeacher> testGet101() {
         System.out.println(userServiceApi);
         System.out.println(userService);
 

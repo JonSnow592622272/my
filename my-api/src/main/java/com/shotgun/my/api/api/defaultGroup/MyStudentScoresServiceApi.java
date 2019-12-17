@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @FeignClient(name = CommonConstant.APPLICATION_NAME)
-@RequestMapping(MyStudentServiceApi.PATH)
+@RequestMapping(MyStudentScoresServiceApi.PATH)
 public interface MyStudentScoresServiceApi {
     String PATH = "/my_student_scores";
 

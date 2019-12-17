@@ -1,3 +1,10 @@
+#server:
+#  port: 8000
+server:
+  port: ${random.int[20000,60000]}
+  servlet:
+    context-path: /api/v1/my-service
+
 spring:
   application:
     name: my-service
@@ -26,8 +33,3 @@ mybatis-plus:
 
 logging:
   config: classpath:log-config/log4j2-${spring.profiles.active}.xml
-
-#server:
-#  port: 8000
-server:
-  port: ${random.int[20000,60000]}

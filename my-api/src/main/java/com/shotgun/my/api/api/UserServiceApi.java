@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-@FeignClient(name = CommonConstant.APPLICATION_NAME)
-//@RequestMapping("/xxx")
+@FeignClient(name = CommonConstant.APPLICATION_NAME, contextId = "UserServiceApi", path =
+        CommonConstant.APPLICATION_SERVLET_CONTEXT_PATH)
 public interface UserServiceApi {
 
     @GetMapping("/getOnelalala")

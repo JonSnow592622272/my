@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(MyTeacherServiceApi.PATH)
 public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeacher> implements MyTeacherService {
 
+    /**
+     * 暴露接口
+     **/
     @Override
     public IPage<MyTeacher> testGet10() {
         return super.testGet10();

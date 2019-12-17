@@ -1,6 +1,6 @@
 package com.shotgun.my.api.api.defaultGroup;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shotgun.my.api.consts.CommonConstant;
 import com.shotgun.my.api.po.pojos.defaultGroup.MyTeacher;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -11,7 +11,7 @@ public interface MyTeacherServiceApi {
     String PATH = "/my_teacher";
 
     @GetMapping("/testGet10")
-    IPage<MyTeacher> testGet10();
+    Page<MyTeacher> testGet10();
 
 
 }

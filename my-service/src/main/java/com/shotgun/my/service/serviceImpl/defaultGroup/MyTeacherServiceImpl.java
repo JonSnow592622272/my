@@ -1,6 +1,7 @@
 package com.shotgun.my.service.serviceImpl.defaultGroup;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shotgun.my.api.api.UserServiceApi;
 import com.shotgun.my.api.api.defaultGroup.MyTeacherServiceApi;
 import com.shotgun.my.api.po.pojos.defaultGroup.MyTeacher;
@@ -30,7 +31,7 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
      * 暴露接口
      **/
     @Override
-    public IPage<MyTeacher> testGet10() {
+    public Page<MyTeacher> testGet10() {
         return super.testGet10();
     }
 
@@ -39,7 +40,7 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
         System.out.println(userServiceApi);
         System.out.println(userService);
 
-        IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet10();
+        Page<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet10();
         return myTeacherIPage;
     }
 

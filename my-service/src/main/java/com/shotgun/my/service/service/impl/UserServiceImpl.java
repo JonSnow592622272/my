@@ -3,6 +3,7 @@ package com.shotgun.my.service.service.impl;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.shotgun.my.api.api.UserServiceApi;
 import com.shotgun.my.api.po.pojos.User;
 import com.shotgun.my.service.dao.defaultDb.UserMapper;
 import com.shotgun.my.service.service.UserService;
@@ -19,7 +20,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
 
     @Autowired
-    private UserService userService;
+    private UserServiceApi userService;
 
     @Override
     public List<User> getOnelalala() {

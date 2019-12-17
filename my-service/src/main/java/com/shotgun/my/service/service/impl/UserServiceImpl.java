@@ -2,11 +2,11 @@ package com.shotgun.my.service.service.impl;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.shotgun.my.api.api.UserServiceApi;
 import com.shotgun.my.api.po.pojos.User;
 import com.shotgun.my.service.dao.defaultDb.UserMapper;
 import com.shotgun.my.service.service.UserService;
+import com.shotgun.mycommon.service.base.MyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @DS("db2")//切换数据源
 @RestController
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+public class UserServiceImpl extends MyServiceImpl<UserMapper, User> implements UserService {
 
 
     @Autowired

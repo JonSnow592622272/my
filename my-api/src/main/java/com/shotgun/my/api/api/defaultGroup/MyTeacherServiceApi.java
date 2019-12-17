@@ -6,7 +6,7 @@ import com.shotgun.my.api.po.pojos.defaultGroup.MyTeacher;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(name = CommonConstant.APPLICATION_NAME, contextId = "myTeacherServiceApi", path = MyTeacherServiceApi.PATH)
+@FeignClient(name = CommonConstant.APPLICATION_NAME, contextId = "myTeacherServiceApi", path = CommonConstant.APPLICATION_SERVLET_CONTEXT_PATH + MyTeacherServiceApi.PATH)
 public interface MyTeacherServiceApi {
     String PATH = "/my_teacher";
 

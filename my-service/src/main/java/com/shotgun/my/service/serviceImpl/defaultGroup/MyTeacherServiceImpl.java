@@ -17,4 +17,6 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
     public IPage<MyTeacher> testGet10() {
         return super.testGet10();
     }
+
+
 }

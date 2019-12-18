@@ -1,6 +1,6 @@
 package com.shotgun.my.api.config;
 
-import com.shotgun.mycommon.base.util.JacksonUtils;
+import com.shotgun.mycommon.base.util.JacksonUtilsSpringmvc;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
 import org.springframework.beans.factory.ObjectFactory;
@@ -21,7 +21,7 @@ public class FeignConfig {
     @Bean
     public Decoder feignDecoder() {
         HttpMessageConverter jacksonConverter = new MappingJackson2HttpMessageConverter(
-                JacksonUtils.OBJECT_MAPPER);
+                JacksonUtilsSpringmvc.OBJECT_MAPPER);
         ObjectFactory<HttpMessageConverters> objectFactory = () -> new HttpMessageConverters(
                 jacksonConverter);
         return new ResponseEntityDecoder(new SpringDecoder(objectFactory));
@@ -30,7 +30,7 @@ public class FeignConfig {
     @Bean
     public Encoder feignEncoder() {
         HttpMessageConverter jacksonConverter = new MappingJackson2HttpMessageConverter(
-                JacksonUtils.OBJECT_MAPPER);
+                JacksonUtilsSpringmvc.OBJECT_MAPPER);
         ObjectFactory<HttpMessageConverters> objectFactory = () -> new HttpMessageConverters(
                 jacksonConverter);
         return new SpringEncoder(objectFactory);

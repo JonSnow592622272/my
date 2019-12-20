@@ -1,7 +1,7 @@
 #server:
 #  port: 8000
 server:
-  port: ${random.int[20000,60000]}
+  port: ${random.int[20000,65535]}
   servlet:
     context-path: /api/v1/my-service
 

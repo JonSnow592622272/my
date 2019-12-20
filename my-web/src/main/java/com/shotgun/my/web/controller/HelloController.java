@@ -1,6 +1,6 @@
 package com.shotgun.my.web.controller;
 
-import com.shotgun.my.api.api.defaultGroup.TestBbbServiceApi;
+import com.shotgun.my.api.api.defaultGroup.subGroup.TestBbbServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

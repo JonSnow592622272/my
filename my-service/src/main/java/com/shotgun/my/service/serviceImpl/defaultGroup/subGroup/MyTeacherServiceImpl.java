@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeacher> implements MyTeacherService {
 
     @Autowired
-    private MyTeacherServiceApi testServiceApi;
+    private MyTeacherServiceApi testServiceApi;//http接口调用
 
     @Autowired
-    private MyTeacherService testService;
+    private MyTeacherService testService;//内部方法直接调用
 
 
     /**
@@ -26,8 +26,8 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
      **/
     @Override
     public IPage<MyTeacher> testGet10() {
-        System.out.println("testServiceApi:::" + testServiceApi);
-        System.out.println("testService:::" + testService);
+        System.out.println("testServiceApi内存信息:::" + testServiceApi);
+        System.out.println("testService内存信息:::" + testService);
 
         return super.testGet10();
     }

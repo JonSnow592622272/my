@@ -1,7 +1,6 @@
 package com.shotgun.my.service.serviceImpl.defaultGroup;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.shotgun.my.api.api.UserServiceApi;
 import com.shotgun.my.api.api.defaultGroup.MyTeacherServiceApi;
 import com.shotgun.my.api.po.pojos.defaultGroup.MyTeacher;
 import com.shotgun.my.service.dao.defaultGroup.MyTeacherMapper;
@@ -19,12 +18,6 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
     @Autowired
     private MyTeacherServiceApi myTeacherServiceApi;
 
-    @Autowired
-    private UserServiceApi userServiceApi;
-
-    @Autowired
-    private UserServiceApi userService;
-
 
     /**
      * 暴露接口
@@ -36,8 +29,6 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
 
     @GetMapping("/testGet101")
     public IPage<MyTeacher> testGet101() {
-        System.out.println(userServiceApi);
-        System.out.println(userService);
 
         IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet10();
         return myTeacherIPage;

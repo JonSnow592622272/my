@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @Autowired
-    private TestBbbServiceApi testBbbServiceApi;
+    private TestBbbServiceApi testBbbService;
 
     @Autowired
     private MyTeacherServiceApi myTeacherServiceApi;
@@ -20,7 +20,7 @@ public class HelloController {
 
     @RequestMapping("/")
     public String index() {
-        System.out.println(testBbbServiceApi.bb());
+        System.out.println(testBbbService.bb());
 
 
         IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet10();

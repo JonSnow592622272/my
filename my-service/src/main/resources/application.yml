@@ -1,9 +1,4 @@
-mybatis-plus:
-  mapper-locations: classpath*:mybatis/*/*Mapper.xml
-
 spring:
-  profiles:
-    active: dev
   datasource:
     dynamic:
       primary: db1 #设置默认的数据源或者数据源组,默认值即为master
@@ -11,18 +6,12 @@ spring:
       datasource:
         db1:
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/sbd?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false&tinyInt1isBit=false
+          url: jdbc:mysql://localhost:3306/nimei?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false&tinyInt1isBit=false
           username: root
           password:
         db2:
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/sbd2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false&tinyInt1isBit=false
+          url: jdbc:mysql://localhost:3306/nimei2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false&tinyInt1isBit=false
           username: root
           password:
 
-logging:
-  config: classpath:log-config/log4j2-${spring.profiles.active}.xml
-#server:
-#  port: 8000
-server:
-  port: ${random.int[20000,60000]}

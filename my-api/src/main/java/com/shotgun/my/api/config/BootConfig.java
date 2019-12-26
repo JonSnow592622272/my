@@ -1,4 +1,4 @@
-package com.shotgun.my.api;
+package com.shotgun.my.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;

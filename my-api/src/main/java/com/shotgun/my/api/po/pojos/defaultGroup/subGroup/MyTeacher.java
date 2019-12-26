@@ -1,13 +1,13 @@
-package com.shotgun.my.api.po.pojos.defaultGroup;
+package com.shotgun.my.api.po.pojos.defaultGroup.subGroup;
 
 import java.io.Serializable;
 
 /**
- * 表名：my_student
- * 学生表
+ * 表名：my_teacher
+ * 教师表
  *
  */
-public class MyStudent implements Serializable {
+public class MyTeacher implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -17,8 +17,6 @@ public class MyStudent implements Serializable {
     private String name;
     /** 年龄 */
     private Integer age;
-    /** 教师id */
-    private Long teacherId;
 
     public Long getId() {
         return id;
@@ -28,7 +26,7 @@ public class MyStudent implements Serializable {
         this.id = id;
     }
 
-    public MyStudent withId(Long id) {
+    public MyTeacher withId(Long id) {
         this.id = id;
         return this;
     }
@@ -41,7 +39,7 @@ public class MyStudent implements Serializable {
         this.name = name;
     }
 
-    public MyStudent withName(String name) {
+    public MyTeacher withName(String name) {
         this.name = name;
         return this;
     }
@@ -54,21 +52,8 @@ public class MyStudent implements Serializable {
         this.age = age;
     }
 
-    public MyStudent withAge(Integer age) {
+    public MyTeacher withAge(Integer age) {
         this.age = age;
-        return this;
-    }
-
-    public Long getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public MyStudent withTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
         return this;
     }
 

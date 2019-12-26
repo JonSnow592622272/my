@@ -1,6 +1,15 @@
+#server:
+#  port: 8000
+server:
+  port: ${random.int[20000,65535]}
+  servlet:
+    context-path: /api/v1/my-service
+
 spring:
   application:
     name: my-service
+  profiles:
+    active: dev
   cloud:
     nacos:
       discovery:
@@ -18,3 +27,9 @@ spring:
 #        prefix: profitConfig
 #  profiles:
 #    active: sit
+
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/*/*Mapper.xml
+
+logging:
+  config: classpath:log-config/log4j2-${spring.profiles.active}.xml

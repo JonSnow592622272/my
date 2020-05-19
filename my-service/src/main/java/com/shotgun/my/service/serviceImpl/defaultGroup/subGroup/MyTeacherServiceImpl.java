@@ -10,22 +10,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author wulm
+ **/
 @RestController
 @RequestMapping(MyTeacherServiceApi.PATH)
 public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeacher> implements MyTeacherService {
 
+    /**
+     * http接口调用
+     */
     @Autowired
-    private MyTeacherServiceApi testServiceApi;//http接口调用
+    private MyTeacherServiceApi testServiceApi;
 
+    /**
+     * 内部方法直接调用
+     */
     @Autowired
-    private MyTeacherService testService;//内部方法直接调用
+    private MyTeacherService testService;
 
 
     /**
-     * 暴露接口
+     * service-controller暴露接口
      **/
     @Override
     public IPage<MyTeacher> testGet10() {
+
+
         System.out.println("testServiceApi内存信息:::" + testServiceApi);
         System.out.println("testService内存信息:::" + testService);
 

@@ -31,7 +31,7 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
 
 
     /**
-     * service-controller暴露接口
+     * service-controller暴露接口，不重写则不暴露出去
      **/
     @Override
     public IPage<MyTeacher> testGet10() {

@@ -24,36 +24,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <my-common.version>1.0-SNAPSHOT</my-common.version>
     </properties>
-
-
-    <dependencyManagement>
-        <dependencies>
-            <!--内部模块版本管理↓↓↓↓↓-->
-            <dependency>
-                <groupId>com.shotgun</groupId>
-                <artifactId>my-common-base</artifactId>
-                <version>${my-common.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.shotgun</groupId>
-                <artifactId>my-common-service</artifactId>
-                <version>${my-common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.shotgun</groupId>
-                <artifactId>my-common-web</artifactId>
-                <version>${my-common.version}</version>
-            </dependency>
-
-            <!--内部模块版本管理↑↑↑↑↑-->
-
-
-        </dependencies>
-
-    </dependencyManagement>
 
     <build>
         <plugins>

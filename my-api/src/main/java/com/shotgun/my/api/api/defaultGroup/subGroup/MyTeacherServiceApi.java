@@ -6,10 +6,15 @@ import com.shotgun.my.api.consts.CommonConstant;
 import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyTeacher;
 import com.shotgun.mycommon.base.base.Goups;
 import com.shotgun.mycommon.base.base.ResultInfo;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 /**
  * @author wulm
@@ -17,16 +22,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 @FeignClient(name = CommonConstant.APPLICATION_SERVICE_NAME, contextId = "myTeacherServiceApi", path =
         CommonConstant.APPLICATION_SERVICE_SERVLET_CONTEXT_PATH + MyTeacherServiceApi.PATH, configuration =
         FeignConfig.class)
+@Validated
 public interface MyTeacherServiceApi {
     String PATH = "/my_teacher";
 
+
     @GetMapping("/testGet10")
-    IPage<MyTeacher> testGet10();
+    IPage<MyTeacher> testGet102(@RequestParam @Length(max = 4,message = "长度不能大于4") String a, @RequestParam String b);
 
     @PostMapping("/insert")
     @Validated(Goups.Insert.class)
-    ResultInfo insert(MyTeacher record);
-
+    ResultInfo insert2(@RequestBody @Valid MyTeacher record);
 
 
 }

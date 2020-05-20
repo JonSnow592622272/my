@@ -7,7 +7,6 @@ import com.shotgun.my.service.dao.defaultGroup.subGroup.MyTeacherMapper;
 import com.shotgun.my.service.service.defaultGroup.subGroup.MyTeacherService;
 import com.shotgun.mycommon.base.base.ResultInfo;
 import com.shotgun.mycommon.service.base.MyServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,12 +29,12 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
      */
     private MyTeacherService myTeacherService;
 
-    @Autowired
+//    @Autowired
     public void setMyTeacherServiceApi(MyTeacherServiceApi myTeacherServiceApi) {
         this.myTeacherServiceApi = myTeacherServiceApi;
     }
 
-    @Autowired
+//    @Autowired
     public void setMyTeacherService(MyTeacherService myTeacherService) {
         this.myTeacherService = myTeacherService;
     }
@@ -43,24 +42,28 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
 
     /**
      * service-controller暴露接口，不重写则不暴露出去
-     **/
+     *
+     * @param a
+     * @param b*/
     @Override
-    public IPage<MyTeacher> testGet10() {
+    public IPage<MyTeacher> testGet102(String a, String b) {
 
 
         System.out.println("testServiceApi内存信息:::" + myTeacherServiceApi);
         System.out.println("testService内存信息:::" + myTeacherService);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa::::::::::::::::::::::::::::::::::::::::" + a);
+        System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbb::::::::::::::::::::::::::::::::::::::::" + b);
 
-        return super.testGet10();
+        return super.testGet10(a, b);
     }
 
     @Override
-    public ResultInfo insert(MyTeacher record) {
+    public ResultInfo insert2(MyTeacher record) {
         return super.insert(record);
     }
 
     @Override
     public ResultInfo insertBatch(Collection<MyTeacher> records) {
-        return null;
+        return super.insertBatch(records);
     }
 }

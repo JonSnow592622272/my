@@ -4,9 +4,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.shotgun.my.api.api.defaultGroup.subGroup.MyTeacherServiceApi;
 import com.shotgun.my.api.api.defaultGroup.subGroup.TestBbbServiceApi;
 import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyTeacher;
+import com.shotgun.mycommon.base.base.ResultInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author wulm
@@ -30,11 +34,18 @@ public class HelloController {
         return "Greetings from Spring Boot! 祝你好运！";
     }
 
+
     @RequestMapping("/testGet10")
     public IPage<MyTeacher> testGet10() {
 
         IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet10();
         return myTeacherIPage;
+    }
+
+    @PostMapping("/insertTeacher")
+    public ResultInfo insertTeacher(MyTeacher myTeacher) {
+        myTeacher.setId(ThreadLocalRandom.current().nextLong(100,999999999L));
+        return myTeacherServiceApi.insert(myTeacher);
     }
 
 }

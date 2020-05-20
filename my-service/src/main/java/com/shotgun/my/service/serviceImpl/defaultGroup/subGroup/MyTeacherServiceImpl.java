@@ -5,10 +5,13 @@ import com.shotgun.my.api.api.defaultGroup.subGroup.MyTeacherServiceApi;
 import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyTeacher;
 import com.shotgun.my.service.dao.defaultGroup.subGroup.MyTeacherMapper;
 import com.shotgun.my.service.service.defaultGroup.subGroup.MyTeacherService;
+import com.shotgun.mycommon.base.base.ResultInfo;
 import com.shotgun.mycommon.service.base.MyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collection;
 
 /**
  * @author wulm
@@ -51,5 +54,13 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
         return super.testGet10();
     }
 
+    @Override
+    public ResultInfo insert(MyTeacher record) {
+        return super.insert(record);
+    }
 
+    @Override
+    public ResultInfo insertBatch(Collection<MyTeacher> records) {
+        return null;
+    }
 }

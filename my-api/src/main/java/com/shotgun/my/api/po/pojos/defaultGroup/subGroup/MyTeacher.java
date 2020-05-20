@@ -1,5 +1,10 @@
 package com.shotgun.my.api.po.pojos.defaultGroup.subGroup;
 
+import com.shotgun.mycommon.base.base.Goups;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
+
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 /**
@@ -14,8 +19,11 @@ public class MyTeacher implements Serializable {
     /**  */
     private Long id;
     /** 姓名 */
+    @NotEmpty(message = "姓名不能为空", groups = {Goups.Insert.class})
+    @Length(max = 4,message = "姓名长度不能大于4",groups = {Goups.Insert.class, Goups.Update.class})
     private String name;
     /** 年龄 */
+    @Range(min = 10, max = 50, message = "年龄不符合", groups = {Goups.Insert.class, Goups.Update.class})
     private Integer age;
 
     public Long getId() {

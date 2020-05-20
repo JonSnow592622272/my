@@ -7,6 +7,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * @author wulm
+ **/
 @RestController
 @RequestMapping("test")
 @Api(tags = "测试API接口")

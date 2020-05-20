@@ -20,14 +20,22 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
     /**
      * http接口调用
      */
-    @Autowired
-    private MyTeacherServiceApi testServiceApi;
+    private MyTeacherServiceApi myTeacherServiceApi;
 
     /**
      * 内部方法直接调用
      */
+    private MyTeacherService myTeacherService;
+
     @Autowired
-    private MyTeacherService testService;
+    public void setMyTeacherServiceApi(MyTeacherServiceApi myTeacherServiceApi) {
+        this.myTeacherServiceApi = myTeacherServiceApi;
+    }
+
+    @Autowired
+    public void setMyTeacherService(MyTeacherService myTeacherService) {
+        this.myTeacherService = myTeacherService;
+    }
 
 
     /**
@@ -37,8 +45,8 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
     public IPage<MyTeacher> testGet10() {
 
 
-        System.out.println("testServiceApi内存信息:::" + testServiceApi);
-        System.out.println("testService内存信息:::" + testService);
+        System.out.println("testServiceApi内存信息:::" + myTeacherServiceApi);
+        System.out.println("testService内存信息:::" + myTeacherService);
 
         return super.testGet10();
     }

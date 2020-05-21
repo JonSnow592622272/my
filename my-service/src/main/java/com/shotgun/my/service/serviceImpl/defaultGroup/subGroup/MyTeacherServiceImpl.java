@@ -10,8 +10,6 @@ import com.shotgun.mycommon.service.base.MyServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
-
 /**
  * @author wulm
  **/
@@ -29,12 +27,12 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
      */
     private MyTeacherService myTeacherService;
 
-//    @Autowired
+    //    @Autowired
     public void setMyTeacherServiceApi(MyTeacherServiceApi myTeacherServiceApi) {
         this.myTeacherServiceApi = myTeacherServiceApi;
     }
 
-//    @Autowired
+    //    @Autowired
     public void setMyTeacherService(MyTeacherService myTeacherService) {
         this.myTeacherService = myTeacherService;
     }
@@ -44,7 +42,8 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
      * service-controller暴露接口，不重写则不暴露出去
      *
      * @param a
-     * @param b*/
+     * @param b
+     */
     @Override
     public IPage<MyTeacher> testGet102(String a, String b) {
 
@@ -62,8 +61,4 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
         return super.baseInsert(record);
     }
 
-    @Override
-    public ResultInfo baseInsertBatch(Collection<MyTeacher> records) {
-        return super.baseInsertBatch(records);
-    }
 }

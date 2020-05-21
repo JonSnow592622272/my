@@ -19,6 +19,8 @@ import javax.validation.Valid;
 /**
  * @author wulm
  * 方法命名规范：增删改查：insert,update,delete,get
+ *
+ * 后面增加mq异步处理，1：web发起feign调用，service的feign中spring验证器验证数据后，发送消息到消息中间件，当前service消费消息，从spring中拿到实现类执行逻辑
  **/
 @FeignClient(name = CommonConstant.APPLICATION_SERVICE_NAME, contextId = "myTeacherServiceApi", path =
         CommonConstant.APPLICATION_SERVICE_SERVLET_CONTEXT_PATH + MyTeacherServiceApi.PATH, configuration =

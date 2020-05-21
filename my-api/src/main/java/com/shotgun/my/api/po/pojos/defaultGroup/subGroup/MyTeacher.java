@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * 表名：my_teacher
  * 教师表
- * 验证器分组：groups必须要填写
+ * 验证器分组：groups必须要填写，通用的可以以数组形式设置
  */
 public class MyTeacher implements Serializable {
 

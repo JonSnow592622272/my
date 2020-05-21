@@ -18,6 +18,7 @@ import javax.validation.Valid;
 
 /**
  * @author wulm
+ * 方法命名规范：增删改查：insert,update,delete,get
  **/
 @FeignClient(name = CommonConstant.APPLICATION_SERVICE_NAME, contextId = "myTeacherServiceApi", path =
         CommonConstant.APPLICATION_SERVICE_SERVLET_CONTEXT_PATH + MyTeacherServiceApi.PATH, configuration =
@@ -28,7 +29,8 @@ public interface MyTeacherServiceApi {
 
 
     @GetMapping("/testGet10")
-    IPage<MyTeacher> testGet102(@RequestParam @Length(max = 4,message = "长度不能大于4") String a, @RequestParam String b);
+    IPage<MyTeacher> testGet102(@RequestParam @Length(max = 4, message = "长度不能大于4") String a,
+            @RequestParam String b);
 
     @PostMapping("/insert")
     @Validated(Goups.Insert.class)

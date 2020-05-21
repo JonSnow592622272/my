@@ -54,16 +54,16 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
         System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa::::::::::::::::::::::::::::::::::::::::" + a);
         System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbb::::::::::::::::::::::::::::::::::::::::" + b);
 
-        return super.testGet10(a, b);
+        return super.baseTestGet10(a, b);
     }
 
     @Override
     public ResultInfo insert2(MyTeacher record) {
-        return super.insert(record);
+        return super.baseInsert(record);
     }
 
     @Override
-    public ResultInfo insertBatch(Collection<MyTeacher> records) {
-        return super.insertBatch(records);
+    public ResultInfo baseInsertBatch(Collection<MyTeacher> records) {
+        return super.baseInsertBatch(records);
     }
 }

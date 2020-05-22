@@ -3,21 +3,24 @@ package com.shotgun.my.service.serviceImpl.defaultGroup.subGroup;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.shotgun.my.api.api.defaultGroup.subGroup.MyTeacherServiceApi;
 import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyTeacher;
+import com.shotgun.my.service.base.MyCommonServiceImpl;
 import com.shotgun.my.service.dao.defaultGroup.subGroup.MyTeacherMapper;
 import com.shotgun.my.service.service.defaultGroup.subGroup.MyTeacherService;
 import com.shotgun.mycommon.base.base.ResultInfo;
-import com.shotgun.mycommon.service.base.MyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author wulm
  **/
 @RestController
 @RequestMapping(MyTeacherServiceApi.PATH)
-public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeacher> implements MyTeacherService {
+public class MyTeacherServiceImpl extends MyCommonServiceImpl<MyTeacherMapper, MyTeacher> implements MyTeacherService {
 
     /**
      * http接口调用
@@ -62,6 +65,11 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
     @Override
     public ResultInfo insert2(MyTeacher record) {
         return super.baseInsert(record);
+    }
+
+    @Override
+    public ResultInfo insertBatch2(@Valid List<MyTeacher> records) {
+        return success();
     }
 
 }

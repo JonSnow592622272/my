@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author wulm
@@ -37,6 +38,10 @@ public interface MyTeacherServiceApi {
     @PostMapping("/insert")
     @Validated(Goups.Insert.class)
     ResultInfo insert2(@RequestBody @Valid MyTeacher record);
+
+    @PostMapping("/insertBatch2")
+    @Validated(Goups.Insert.class)
+    ResultInfo insertBatch2(@RequestBody @Valid List<MyTeacher> records);
 
 
 }

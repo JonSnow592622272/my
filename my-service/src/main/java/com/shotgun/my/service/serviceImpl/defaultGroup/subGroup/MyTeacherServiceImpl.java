@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -62,14 +61,17 @@ public class MyTeacherServiceImpl extends MyCommonServiceImpl<MyTeacherMapper, M
         return super.baseTestGet10(a, b);
     }
 
+
     @Override
     public ResultInfo insert2(MyTeacher record) {
         return super.baseInsert(record);
     }
 
     @Override
-    public ResultInfo insertBatch2(@Valid List<MyTeacher> records) {
+    public ResultInfo insertBatch2(List<MyTeacher> records) {
+
         return success();
     }
+
 
 }

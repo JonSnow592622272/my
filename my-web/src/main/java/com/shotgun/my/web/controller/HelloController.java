@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author wulm
@@ -36,10 +38,12 @@ public class HelloController {
 
 
     @RequestMapping("/testGet10")
-    public IPage<MyTeacher> testGet10() {
+    public ResultInfo testGet10() {
 
-        IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet102("ccc","dddddddddddddddddd");
-        return myTeacherIPage;
+        ResultInfo resultInfo = myTeacherServiceApi
+                .insertBatch2(Stream.of(new MyTeacher()).collect(Collectors.toList()));
+
+        return resultInfo;
     }
 
     @PostMapping("/insertTeacher")

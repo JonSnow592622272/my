@@ -5,6 +5,7 @@ import com.shotgun.my.api.api.defaultGroup.subGroup.MyTeacherServiceApi;
 import com.shotgun.my.api.api.defaultGroup.subGroup.TestBbbServiceApi;
 import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyTeacher;
 import com.shotgun.mycommon.base.base.ResultInfo;
+import com.shotgun.mycommon.base.base.entity.ValidCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,7 @@ public class HelloController {
         System.out.println(testBbbService.bb());
 
 
-        IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet102("aaa","bbbbbbbbbbbbbbbbbbbb");
+        IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet102("aaa", "bbbbbbbbbbbbbbbbbbbb");
         return "Greetings from Spring Boot! 祝你好运！";
     }
 
@@ -40,15 +41,18 @@ public class HelloController {
     @RequestMapping("/testGet10")
     public ResultInfo testGet10() {
 
+        MyTeacher t = new MyTeacher();
+        t.setName("张三");
+        t.setAge(20);
         ResultInfo resultInfo = myTeacherServiceApi
-                .insertBatch2(Stream.of(new MyTeacher()).collect(Collectors.toList()));
+                .insertBatch2(ValidCollection.of(Stream.of(t, t, t).collect(Collectors.toList())));
 
         return resultInfo;
     }
 
     @PostMapping("/insertTeacher")
     public ResultInfo insertTeacher(MyTeacher myTeacher) {
-        myTeacher.setId(ThreadLocalRandom.current().nextLong(100,999999999L));
+        myTeacher.setId(ThreadLocalRandom.current().nextLong(100, 999999999L));
         return myTeacherServiceApi.insert2(myTeacher);
     }
 

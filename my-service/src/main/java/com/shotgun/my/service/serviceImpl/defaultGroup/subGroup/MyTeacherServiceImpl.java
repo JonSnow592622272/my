@@ -7,12 +7,11 @@ import com.shotgun.my.service.base.MyCommonServiceImpl;
 import com.shotgun.my.service.dao.defaultGroup.subGroup.MyTeacherMapper;
 import com.shotgun.my.service.service.defaultGroup.subGroup.MyTeacherService;
 import com.shotgun.mycommon.base.base.ResultInfo;
+import com.shotgun.mycommon.base.base.entity.ValidCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * @author wulm
@@ -67,8 +66,9 @@ public class MyTeacherServiceImpl extends MyCommonServiceImpl<MyTeacherMapper, M
         return super.baseInsert(record);
     }
 
+
     @Override
-    public ResultInfo insertBatch2(List<MyTeacher> records) {
+    public ResultInfo insertBatch2(ValidCollection<MyTeacher> records) {
 
         return success();
     }

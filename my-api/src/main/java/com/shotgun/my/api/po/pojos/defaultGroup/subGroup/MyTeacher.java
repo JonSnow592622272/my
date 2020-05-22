@@ -20,7 +20,7 @@ public class MyTeacher implements Serializable {
     private Long id;
     /** 姓名 */
     @NotEmpty(message = "姓名不能为空")
-    @Length(max = 4, message = "姓名长度不能大于4", groups = {Goups.Insert.class})
+    @Length(max = 4, message = "姓名长度不能大于{max}", groups = {Goups.Insert.class})
     private String name;
     /** 年龄 */
     @Range(min = 10, max = 50, message = "年龄不符合", groups = {Goups.Update.class})

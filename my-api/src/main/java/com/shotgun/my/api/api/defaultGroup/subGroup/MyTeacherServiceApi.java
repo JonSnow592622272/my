@@ -32,7 +32,7 @@ public interface MyTeacherServiceApi {
 
 
     @GetMapping("/testGet10")
-    IPage<MyTeacher> testGet102(@RequestParam @Length(max = 4, message = "长度不能大于4") String a,
+    IPage<MyTeacher> testGet102(@RequestParam @Length(max = 4, message = "长度不能大于{max}") String a,
             @RequestParam String b);
 
     @PostMapping("/insert")

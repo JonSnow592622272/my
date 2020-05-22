@@ -7,6 +7,8 @@ import com.shotgun.my.service.dao.defaultGroup.subGroup.MyTeacherMapper;
 import com.shotgun.my.service.service.defaultGroup.subGroup.MyTeacherService;
 import com.shotgun.mycommon.base.base.ResultInfo;
 import com.shotgun.mycommon.service.base.MyServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,12 +29,13 @@ public class MyTeacherServiceImpl extends MyServiceImpl<MyTeacherMapper, MyTeach
      */
     private MyTeacherService myTeacherService;
 
-    //    @Autowired
+    @Autowired
     public void setMyTeacherServiceApi(MyTeacherServiceApi myTeacherServiceApi) {
         this.myTeacherServiceApi = myTeacherServiceApi;
     }
 
-    //    @Autowired
+    @Autowired
+    @Lazy
     public void setMyTeacherService(MyTeacherService myTeacherService) {
         this.myTeacherService = myTeacherService;
     }

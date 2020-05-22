@@ -30,7 +30,7 @@ public class HelloController {
         System.out.println(testBbbService.bb());
 
 
-        IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet102("aaaaaaaaaaaaaaaaaaa","bbbbbbbbbbbbbbbbbbbb");
+        IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet102("aaa","bbbbbbbbbbbbbbbbbbbb");
         return "Greetings from Spring Boot! 祝你好运！";
     }
 
@@ -38,7 +38,7 @@ public class HelloController {
     @RequestMapping("/testGet10")
     public IPage<MyTeacher> testGet10() {
 
-        IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet102("cccccccccccccccccccc","dddddddddddddddddd");
+        IPage<MyTeacher> myTeacherIPage = myTeacherServiceApi.testGet102("ccc","dddddddddddddddddd");
         return myTeacherIPage;
     }
 

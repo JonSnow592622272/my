@@ -4,9 +4,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.shotgun.my.api.config.FeignConfig;
 import com.shotgun.my.api.consts.CommonConstant;
 import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyTeacher;
-import com.shotgun.mycommon.base.base.Goups;
-import com.shotgun.mycommon.base.base.ResultInfo;
-import com.shotgun.mycommon.base.base.entity.ValidCollection;
+import com.shotgun.mycommon.base.base.valid.Goups;
+import com.shotgun.mycommon.base.base.api.ResultInfo;
+import com.shotgun.mycommon.base.base.api.BombApi;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.validation.annotation.Validated;
@@ -27,7 +27,7 @@ import javax.validation.Valid;
         CommonConstant.APPLICATION_SERVICE_SERVLET_CONTEXT_PATH + MyTeacherServiceApi.PATH, configuration =
         FeignConfig.class)
 @Validated
-public interface MyTeacherServiceApi {
+public interface MyTeacherServiceApi extends BombApi<MyTeacher> {
     String PATH = "/my_teacher";
 
 
@@ -38,10 +38,5 @@ public interface MyTeacherServiceApi {
     @PostMapping("/insert")
     @Validated(Goups.Insert.class)
     ResultInfo insert2(@RequestBody @Valid MyTeacher record);
-
-    @PostMapping("/insertBatch2")
-    @Validated(Goups.Insert.class)
-    ResultInfo insertBatch2(@RequestBody @Valid ValidCollection<MyTeacher> records);
-
 
 }

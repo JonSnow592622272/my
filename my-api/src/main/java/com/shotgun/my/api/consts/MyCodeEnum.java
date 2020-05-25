@@ -1,7 +1,7 @@
 package com.shotgun.my.api.consts;
 
 
-import com.shotgun.mycommon.base.base.Code;
+import com.shotgun.mycommon.base.base.api.Code;
 
 /**
  * @desc 前三位为模块编号，后三位为自增值，保证不重复即可

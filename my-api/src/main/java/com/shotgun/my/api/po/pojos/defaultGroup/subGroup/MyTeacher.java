@@ -1,6 +1,6 @@
 package com.shotgun.my.api.po.pojos.defaultGroup.subGroup;
 
-import com.shotgun.mycommon.base.base.Goups;
+import com.shotgun.mycommon.base.base.valid.Goups;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 

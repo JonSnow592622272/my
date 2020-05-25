@@ -3,7 +3,7 @@ package com.shotgun.my.service.serviceImpl.defaultGroup.subGroup;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.shotgun.my.api.api.defaultGroup.subGroup.MyTeacherServiceApi;
 import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyTeacher;
-import com.shotgun.my.service.base.CommonServiceImpl;
+import com.shotgun.my.service.base.AbstractCommonService;
 import com.shotgun.my.service.dao.defaultGroup.subGroup.MyTeacherMapper;
 import com.shotgun.my.service.service.defaultGroup.subGroup.MyTeacherService;
 import com.shotgun.mycommon.base.base.api.ResultInfo;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 @RequestMapping(MyTeacherServiceApi.PATH)
-public class MyTeacherServiceImpl extends CommonServiceImpl<MyTeacherMapper, MyTeacher> implements MyTeacherService {
+public class MyTeacherServiceImpl extends AbstractCommonService<MyTeacherMapper, MyTeacher> implements MyTeacherService {
 
     /**
      * http接口调用
@@ -65,6 +65,7 @@ public class MyTeacherServiceImpl extends CommonServiceImpl<MyTeacherMapper, MyT
     public ResultInfo insert2(MyTeacher record) {
         return super.baseInsert(record);
     }
+
 
 
 }

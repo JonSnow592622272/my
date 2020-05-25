@@ -7,12 +7,11 @@ import com.shotgun.mycommon.service.base.BombMapper;
 
 /**
  * @author wulm
- * 所有serviceImpl的基类，用于存放公共基础方法。不能在XXXServiceApi中创建与当该类方法同名接口，否则会引起feign的验证问题
  **/
-public class CommonServiceImpl<M extends BombMapper<T>, T> extends AbstractBombService<M, T> implements CommonService<T> {
+public abstract class AbstractCommonService<M extends BombMapper<T>, T> extends AbstractBombService<M, T> implements CommonService<T> {
 
     @Override
-    protected ResultInfo success() {
+    public ResultInfo success() {
         return ResultInfo.of(MyCodeEnum.SUCCESS);
     }
 }

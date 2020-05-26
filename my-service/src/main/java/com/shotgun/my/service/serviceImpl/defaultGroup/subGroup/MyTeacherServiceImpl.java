@@ -63,7 +63,7 @@ public class MyTeacherServiceImpl extends AbstractCommonService<MyTeacherMapper,
 
     @Override
     public ResultInfo insert2(MyTeacher record) {
-        return super.baseInsert(record);
+        return super.insert(record);
     }
 
 

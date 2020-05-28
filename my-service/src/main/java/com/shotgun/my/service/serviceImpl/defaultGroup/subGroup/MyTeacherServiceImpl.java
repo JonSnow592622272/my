@@ -52,6 +52,7 @@ public class MyTeacherServiceImpl extends AbstractCommonService<MyTeacherMapper,
     public IPage<MyTeacher> testGet102(String a, String b) {
 
 
+        System.out.println("class信息：：：："+this.getClass().getName());
         System.out.println("testServiceApi内存信息:::" + myTeacherServiceApi);
         System.out.println("testService内存信息:::" + myTeacherService);
         System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa::::::::::::::::::::::::::::::::::::::::" + a);

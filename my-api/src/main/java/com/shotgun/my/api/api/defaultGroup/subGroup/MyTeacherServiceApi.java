@@ -35,7 +35,7 @@ public interface MyTeacherServiceApi extends BombApi<MyTeacher> {
     IPage<MyTeacher> testGet102(@RequestParam @Length(max = 4, message = "长度不能大于{max}") String a,
             @RequestParam String b);
 
-    @PostMapping("/insert")
+    @PostMapping("/insert2")
     @Validated(Goups.Insert.class)
     ResultInfo insert2(@RequestBody @Valid MyTeacher record);
 

@@ -7,11 +7,11 @@ import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyTeacher;
 import com.shotgun.mycommon.base.base.api.ResultInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -27,6 +27,35 @@ public class HelloController {
     @Autowired
     private MyTeacherServiceApi myTeacherServiceApi;
 
+    /**
+     * api基础接口测试
+     *
+     * @author wulm
+     **/
+    @RequestMapping("insert")
+    public ResultInfo insert(MyTeacher myTeacher) {
+        return myTeacherServiceApi.insert(myTeacher);
+    }
+
+    /**
+     * api基础接口测试
+     *
+     * @author wulm
+     **/
+    @RequestMapping("insertBatch")
+    public ResultInfo insertBatch(MyTeacher myTeacher) {
+        return myTeacherServiceApi.insertBatch(myTeacher);
+    }
+
+    /**
+     * api基础接口测试
+     *
+     * @author wulm
+     **/
+    @PostMapping("insertBatch2")
+    public ResultInfo insertBatch(@RequestBody List<MyTeacher> myTeachers) {
+        return myTeacherServiceApi.insertBatch(myTeachers);
+    }
 
     @RequestMapping("/")
     public String index() {
@@ -40,8 +69,6 @@ public class HelloController {
 
     @RequestMapping("/testGet10")
     public ResultInfo testGet10(MyTeacher myTeacher) {
-        myTeacher.setId(ThreadLocalRandom.current().nextLong(100, 999999999L));
-
         ResultInfo resultInfo = myTeacherServiceApi.insertBatch2(getTeachers());
 
         return resultInfo;
@@ -49,13 +76,11 @@ public class HelloController {
 
     @PostMapping("/insertTeacher")
     public ResultInfo insertTeacher(MyTeacher myTeacher) {
-        myTeacher.setId(ThreadLocalRandom.current().nextLong(100, 999999999L));
         return myTeacherServiceApi.insert2(myTeacher);
     }
 
     @PostMapping("/baseInsert66666")
     public ResultInfo baseInsert66666(MyTeacher myTeacher) {
-        myTeacher.setId(ThreadLocalRandom.current().nextLong(100, 999999999L));
         return myTeacherServiceApi.baseInsert66666(myTeacher);
     }
 
@@ -68,7 +93,6 @@ public class HelloController {
     public static List<MyTeacher> getTeachers() {
         List<MyTeacher> list = IntStream.range(1, 6).mapToObj(operand -> {
             MyTeacher t = new MyTeacher();
-            t.setId(ThreadLocalRandom.current().nextLong(100, 999999999L));
             t.setName("张三让我恩服务费");
             t.setAge(operand);
             return t;

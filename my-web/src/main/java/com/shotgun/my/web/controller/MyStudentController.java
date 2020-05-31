@@ -36,8 +36,6 @@ public class MyStudentController {
 
     /**
      * api基础接口测试
-     *
-     * @author wulm
      **/
     @PostMapping("insert")
     public ResultInfo insert(MyStudent myStudent) {
@@ -46,8 +44,6 @@ public class MyStudentController {
 
     /**
      * api基础接口测试
-     *
-     * @author wulm
      **/
     @PostMapping("insertBatchArr")
     public ResultInfo insertBatchArr(MyStudent myStudent) {
@@ -56,8 +52,6 @@ public class MyStudentController {
 
     /**
      * api基础接口测试
-     *
-     * @author wulm
      **/
     @PostMapping("insertBatchCol")
     public ResultInfo insertBatchCol(@RequestBody List<MyStudent> myStudents) {

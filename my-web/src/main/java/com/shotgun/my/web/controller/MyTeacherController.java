@@ -22,8 +22,6 @@ public class MyTeacherController {
 
     /**
      * api基础接口测试
-     *
-     * @author wulm
      **/
     @PostMapping("insert")
     public ResultInfo insert(MyTeacher myTeacher) {
@@ -32,8 +30,6 @@ public class MyTeacherController {
 
     /**
      * api基础接口测试
-     *
-     * @author wulm
      **/
     @PostMapping("insertBatchArr")
     public ResultInfo insertBatchArr(MyTeacher myTeacher) {
@@ -42,8 +38,6 @@ public class MyTeacherController {
 
     /**
      * api基础接口测试
-     *
-     * @author wulm
      **/
     @PostMapping("insertBatchCol")
     public ResultInfo insertBatchCol(@RequestBody List<MyTeacher> myTeachers) {

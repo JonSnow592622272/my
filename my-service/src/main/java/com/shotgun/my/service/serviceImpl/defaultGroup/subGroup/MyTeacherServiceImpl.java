@@ -6,7 +6,6 @@ import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyTeacher;
 import com.shotgun.my.service.base.AbstractCommonService;
 import com.shotgun.my.service.dao.defaultGroup.subGroup.MyTeacherMapper;
 import com.shotgun.my.service.service.defaultGroup.subGroup.MyTeacherService;
-import com.shotgun.mycommon.base.base.api.ResultInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,12 +58,6 @@ public class MyTeacherServiceImpl extends AbstractCommonService<MyTeacherMapper,
         System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbb::::::::::::::::::::::::::::::::::::::::" + b);
 
         return super.baseTestGet10(a, b);
-    }
-
-
-    @Override
-    public ResultInfo insert2(MyTeacher record) {
-        return super.insert(record);
     }
 
 

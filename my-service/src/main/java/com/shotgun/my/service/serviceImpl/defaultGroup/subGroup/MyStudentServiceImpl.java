@@ -6,7 +6,6 @@ import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyStudent;
 import com.shotgun.my.service.base.AbstractCommonService;
 import com.shotgun.my.service.dao.defaultGroup.subGroup.MyStudentMapper;
 import com.shotgun.my.service.service.defaultGroup.subGroup.MyStudentService;
-import com.shotgun.mycommon.base.base.api.ResultInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,13 +59,6 @@ public class MyStudentServiceImpl extends AbstractCommonService<MyStudentMapper,
 
         return super.baseTestGet10(a, b);
     }
-
-
-    @Override
-    public ResultInfo insert2(MyStudent record) {
-        return super.insert(record);
-    }
-
 
 
 }

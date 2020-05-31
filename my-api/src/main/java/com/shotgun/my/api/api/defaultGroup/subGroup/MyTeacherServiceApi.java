@@ -4,18 +4,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.shotgun.my.api.config.FeignConfig;
 import com.shotgun.my.api.consts.CommonConstant;
 import com.shotgun.my.api.po.pojos.defaultGroup.subGroup.MyTeacher;
-import com.shotgun.mycommon.base.base.valid.Goups;
-import com.shotgun.mycommon.base.base.api.ResultInfo;
 import com.shotgun.mycommon.base.base.api.BombApi;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.validation.Valid;
 
 /**
  * @author wulm
@@ -34,9 +28,5 @@ public interface MyTeacherServiceApi extends BombApi<MyTeacher> {
     @GetMapping("/testGet10")
     IPage<MyTeacher> testGet102(@RequestParam @Length(max = 4, message = "长度不能大于{max}") String a,
             @RequestParam String b);
-
-    @PostMapping("/insert2")
-    @Validated(Goups.Insert.class)
-    ResultInfo insert2(@RequestBody @Valid MyTeacher record);
 
 }

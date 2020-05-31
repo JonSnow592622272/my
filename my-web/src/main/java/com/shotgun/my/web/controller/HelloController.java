@@ -32,7 +32,7 @@ public class HelloController {
      *
      * @author wulm
      **/
-    @RequestMapping("insert")
+    @PostMapping("insert")
     public ResultInfo insert(MyTeacher myTeacher) {
         return myTeacherServiceApi.insert(myTeacher);
     }
@@ -42,7 +42,7 @@ public class HelloController {
      *
      * @author wulm
      **/
-    @RequestMapping("insertBatch")
+    @PostMapping("insertBatch")
     public ResultInfo insertBatch(MyTeacher myTeacher) {
         return myTeacherServiceApi.insertBatch(myTeacher);
     }

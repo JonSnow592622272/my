@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * @author wulm
@@ -27,6 +25,14 @@ public class MyStudentController {
 
     @Autowired
     private MyStudentServiceApi myStudentServiceApi;
+
+    @RequestMapping("/")
+    public String index() {
+        System.out.println(testBbbService.bb());
+
+        IPage<MyStudent> myStudentIPage = myStudentServiceApi.testGet102("aaa", "bbbbbbbbbbbbbbbbbbbb");
+        return "Greetings from Spring Boot! 祝你好运！";
+    }
 
     /**
      * api基础接口测试
@@ -43,8 +49,8 @@ public class MyStudentController {
      *
      * @author wulm
      **/
-    @PostMapping("insertBatch")
-    public ResultInfo insertBatch(MyStudent myStudent) {
+    @PostMapping("insertBatchArr")
+    public ResultInfo insertBatchArr(MyStudent myStudent) {
         return myStudentServiceApi.insertBatch(myStudent);
     }
 
@@ -53,36 +59,10 @@ public class MyStudentController {
      *
      * @author wulm
      **/
-    @PostMapping("insertBatch2")
-    public ResultInfo insertBatch(@RequestBody List<MyStudent> myStudents) {
+    @PostMapping("insertBatchCol")
+    public ResultInfo insertBatchCol(@RequestBody List<MyStudent> myStudents) {
         return myStudentServiceApi.insertBatch(myStudents);
     }
 
-    @RequestMapping("/")
-    public String index() {
-        System.out.println(testBbbService.bb());
-
-        IPage<MyStudent> myStudentIPage = myStudentServiceApi.testGet102("aaa", "bbbbbbbbbbbbbbbbbbbb");
-        return "Greetings from Spring Boot! 祝你好运！";
-    }
-
-
-
-    @PostMapping("/insertTeacher")
-    public ResultInfo insertTeacher(MyStudent myStudent) {
-        return myStudentServiceApi.insert2(myStudent);
-    }
-
-
-
-    public static List<MyStudent> getTeachers() {
-        List<MyStudent> list = IntStream.range(1, 6).mapToObj(operand -> {
-            MyStudent t = new MyStudent();
-            t.setName("张三让我恩服务费");
-            t.setAge(operand);
-            return t;
-        }).collect(Collectors.toList());
-        return list;
-    }
 
 }

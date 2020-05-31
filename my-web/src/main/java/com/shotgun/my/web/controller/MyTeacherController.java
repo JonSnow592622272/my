@@ -36,8 +36,8 @@ public class MyTeacherController {
      *
      * @author wulm
      **/
-    @PostMapping("insertBatch")
-    public ResultInfo insertBatch(MyTeacher myTeacher) {
+    @PostMapping("insertBatchArr")
+    public ResultInfo insertBatchArr(MyTeacher myTeacher) {
         return MyTeacherServiceApi.insertBatch(myTeacher);
     }
 
@@ -46,8 +46,8 @@ public class MyTeacherController {
      *
      * @author wulm
      **/
-    @PostMapping("insertBatch2")
-    public ResultInfo insertBatch(@RequestBody List<MyTeacher> myTeachers) {
+    @PostMapping("insertBatchCol")
+    public ResultInfo insertBatchCol(@RequestBody List<MyTeacher> myTeachers) {
         return MyTeacherServiceApi.insertBatch(myTeachers);
     }
 

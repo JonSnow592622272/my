@@ -17,7 +17,7 @@ import java.util.List;
  * @author wulm
  **/
 @RestController
-//@RequestMapping("mystudent")
+@RequestMapping("mystudent")
 public class MyStudentController {
 
     @Autowired

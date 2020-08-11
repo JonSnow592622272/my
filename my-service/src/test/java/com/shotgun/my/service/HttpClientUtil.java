@@ -154,8 +154,6 @@ public class HttpClientUtil {
         params.put("pageSize", pageSize + "");
 
 
-
-
         int count = 0;
         int curPage = 0;
         while (count < totalCount) {
@@ -163,19 +161,31 @@ public class HttpClientUtil {
 
             params.put("pageNum", curPage + "");
 
-            String s = postJsonContent("https://auth.chinaoct.com/api/oap/v1/app/list_auth_account", headers,
-                    params);
 
-            File file=new File("D:/wocao/wocao"+curPage+".txt");
-            file.delete();
+            Map<String, String> tmap = new HashMap<>();
+            tmap.putAll(params);
+            final int tPage = curPage;
+            new Thread(() -> {
+                try {
+                    String s = postJsonContent("https://auth.chinaoct.com/api/oap/v1/app/list_auth_account",
+                            headers, tmap);
 
-            FileWriter fw=new FileWriter(file);
-            
-            fw.append("\r\n\r\n");
-            String x = "curPage:" + curPage + ",,结果：" + s;
-            fw.append(x);
+                    File file = new File("D:/wocao/wocao" + tPage + ".txt");
+                    file.delete();
 
-            fw.close();
+                    FileWriter fw = new FileWriter(file);
+
+                    fw.append("\r\n\r\n");
+
+                    String x = "curPage:" + tPage + ",,结果：" + s;
+                    fw.append(x);
+
+                    fw.close();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
 
 
 //            System.out.println(x);
@@ -186,7 +196,6 @@ public class HttpClientUtil {
             count = sum;
             curPage++;
         }
-
 
     }
 

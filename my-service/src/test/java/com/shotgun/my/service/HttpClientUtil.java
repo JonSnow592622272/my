@@ -141,8 +141,8 @@ public class HttpClientUtil {
 
     public static void main(String[] args) throws Exception {
 
-        final String token = "f69e9379-5e42-42e9-ac21-600653f28e20";
-        final int totalCount = 5433;
+        final String token = "940ebb7b-05d1-4aba-b86c-56bc6436c09e";
+        final int totalCount = 5455;
         final int pageSize = 100;
 
         Map<String, String> headers = new HashMap<>();
@@ -197,6 +197,7 @@ public class HttpClientUtil {
             curPage++;
         }
 
+        Thread.sleep(5000);
     }
 
     public static String postJsonContent(String url, Map<String, String> headers, Map<String, String> params) {

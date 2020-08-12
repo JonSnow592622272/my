@@ -138,7 +138,9 @@ public class HttpClientUtil {
         return json;
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main2(String[] args) throws Exception {
+        //远洋亿家
+
         final String token = "dcae2703-be1b-4733-b6a7-1a207c6f66b0";
         final int totalCount = 9981;
         final int pageSize = 50;
@@ -191,11 +193,13 @@ public class HttpClientUtil {
 
     }
 
-    public static void main2(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
+        //华侨城
+
         //分页页数方式
 
-        final String token = "940ebb7b-05d1-4aba-b86c-56bc6436c09e";
-        final int totalCount = 5455;
+        final String token = "6441dce2-6af3-4b13-ba9e-1cfcf7a8ca5a";
+        final int totalCount = 5458;
         final int pageSize = 100;
 
         Map<String, String> headers = new HashMap<>();

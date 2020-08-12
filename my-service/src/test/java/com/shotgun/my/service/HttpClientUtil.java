@@ -138,8 +138,61 @@ public class HttpClientUtil {
         return json;
     }
 
-
     public static void main(String[] args) throws Exception {
+        final String token = "dcae2703-be1b-4733-b6a7-1a207c6f66b0";
+        final int totalCount = 9981;
+        final int pageSize = 50;
+        final int startAt = 0;
+
+        //当前游标位置
+        int curAt = 0;
+
+        List<Runnable> runnables = new ArrayList<>();
+        while (curAt < totalCount) {
+
+            final int curAtF = curAt;
+
+            runnables.add(() -> {
+                try {
+                    //get  curAt,pagesize
+                    HashMap<String, String> paramMap = new HashMap<>();
+                    paramMap.put("access_token", "dcae2703-be1b-4733-b6a7-1a207c6f66b0");
+                    paramMap.put("start", curAtF + "");
+                    paramMap.put("limit", pageSize + "");
+
+                    String jsonContent = getJsonContent(
+                            "https://yj.oceanhomeplus.com/api/application/enterprise/account/all", null,
+                            paramMap);
+
+
+                    writeToFile(curAtF, jsonContent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            });
+
+            curAt += pageSize;
+
+//            if (curAt>3000){
+//                break;
+//            }
+
+        }
+
+        //异步批量处理
+        long count = runnables.parallelStream().map(runnable -> {
+            runnable.run();
+            return null;
+        }).count();
+
+        System.out.println("处理完毕总数:" + count);
+
+
+    }
+
+    public static void main2(String[] args) throws Exception {
+        //分页页数方式
 
         final String token = "940ebb7b-05d1-4aba-b86c-56bc6436c09e";
         final int totalCount = 5455;
@@ -154,6 +207,8 @@ public class HttpClientUtil {
         params.put("pageSize", pageSize + "");
 
 
+        List<Runnable> runnables = new ArrayList<>();
+
         int count = 0;
         int curPage = 0;
         while (count < totalCount) {
@@ -165,28 +220,18 @@ public class HttpClientUtil {
             Map<String, String> tmap = new HashMap<>();
             tmap.putAll(params);
             final int tPage = curPage;
-            new Thread(() -> {
+
+            runnables.add(() -> {
                 try {
-                    String s = postJsonContent("https://auth.chinaoct.com/api/oap/v1/app/list_auth_account",
-                            headers, tmap);
+                    String content = postJsonContent(
+                            "https://auth.chinaoct.com/api/oap/v1/app/list_auth_account", headers, tmap);
 
-                    File file = new File("D:/wocao/wocao" + tPage + ".txt");
-                    file.delete();
-
-                    FileWriter fw = new FileWriter(file);
-
-                    fw.append("\r\n\r\n");
-
-                    String x = "curPage:" + tPage + ",,结果：" + s;
-                    fw.append(x);
-
-                    fw.close();
+                    writeToFile(tPage, content);
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }).start();
-
+            });
 
 //            System.out.println(x);
 
@@ -197,7 +242,28 @@ public class HttpClientUtil {
             curPage++;
         }
 
-        Thread.sleep(5000);
+        //异步批量处理
+        long doCount = runnables.parallelStream().map(runnable -> {
+            runnable.run();
+            return null;
+        }).count();
+
+        System.out.println("处理完毕总数:" + doCount);
+
+    }
+
+    private static void writeToFile(int tPage, String content) throws IOException {
+        File file = new File("D:/wocao/wocao" + tPage + ".txt");
+        file.delete();
+
+        FileWriter fw = new FileWriter(file);
+
+        fw.append("\r\n\r\n");
+
+        String x = "curPage:" + tPage + ",,结果：" + content;
+        fw.append(x);
+
+        fw.close();
     }
 
     public static String postJsonContent(String url, Map<String, String> headers, Map<String, String> params) {
